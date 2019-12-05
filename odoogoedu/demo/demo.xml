@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model = "odoogoedu.course" id="course0">
+            <field name="name">课程0</field>
+            <field name="description">课程0的描述信息，可多行展示。</field>
+        </record>
+        <record model="odoogoedu.course" id="course1">
+            <field name="name">课程1</field>
+         </record>
+        <record model="odoogoedu.course" id="course2">
+            <field name="name">课程2</field>
+            <field name="description">课程2的描述信息</field>
+        </record>
+    </data>
+</odoo>

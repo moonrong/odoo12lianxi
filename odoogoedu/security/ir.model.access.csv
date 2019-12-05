@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_odoogoedu_course,odoogoedu.course,model_odoogoedu_course,,1,1,1,1
+access_odoogoedu_session,odoogoedu.session,model_odoogoedu_session,,1,1,1,1

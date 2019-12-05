@@ -1,0 +1,125 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="course_list_action">
+            <field name="name">课程</field>
+            <field name="res_model">odoogoedu.course</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    创建一个课程
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="main_odoogoedu_menu" name="课程管理"/>
+        <menuitem id="odoogoedu_menu" name="教室"
+                  parent="main_odoogoedu_menu"/>
+
+        <menuitem id="course_menu" name="课程" parent="odoogoedu_menu"
+                  action="course_list_action"/>
+
+
+        <record model="ir.ui.view" id="course_form_view">
+            <field name="name">course.form</field>
+            <field name="model">odoogoedu.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="responsible_id"/>
+                        </group>
+                        <notebook>
+                            <page string="描述">
+                                <field name="description"/>
+                            </page>
+                            <page string="课时">
+                                <field name="session_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="instructor_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <!--<page string="备注">-->
+                                <!--<field name="note"/>-->
+                            <!--</page>-->
+                            <page string="关于">
+                                测试页面，已写死
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="course_tree_view">
+            <field name="name">course.tree</field>
+            <field name="model">odoogoedu.course</field>
+            <field name="arch" type="xml">
+                <tree string="Course Tree">
+                    <field name="name"/>
+                    <field name="responsible_id"/>
+                    <field name="description"/>
+                </tree>
+
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="session_form_view">
+            <field name="name">session.form</field>
+            <field name="model">odoogoedu.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group string="通用组">
+                                <field name="course_id"/>
+                                <field name="name"/>
+                                <field name="instructor_id"/>
+                            </group>
+                            <group string="计划表">
+                                <field name="name"/>
+                                <field name="start_date"/>
+                                <field name="duration"/>
+                                <field name="seats"/>
+                            </group>
+                        </group>
+                        <label for="attendee_ids"/>
+                        <field name="attendee_ids"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="session_tree_view">
+            <field name="name">session.tree</field>
+            <field name="model">odoogoedu.session</field>
+            <field name="arch" type="xml">
+                <tree string="Session Tree">
+                    <field name="name"/>
+                    <field name="course_id"/>
+                    <field name="seats"/>
+                    <field name="instructor_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="session_list_action">
+            <field name="name">课时</field>
+            <field name="res_model">odoogoedu.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="session_menu" name="课时"
+                  parent="odoogoedu_menu"
+                  action="session_list_action"/>
+
+
+    </data>
+</odoo>
